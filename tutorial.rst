@@ -26,7 +26,8 @@ Step 1 - Build the file layout
 ==============================
 
 Your plugin will be a standard Python package. Create the following
-directories (base should be your base directory, such as motmot)::
+directories (``base`` should be your base directory, such as
+"fview_change_trigger")::
 
   base
   base/motmot
