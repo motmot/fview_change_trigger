@@ -1,4 +1,4 @@
-.. _fview-plugin-tutorial-periodic-trigger:
+.. _fview-plugin-tutorial-change-trigger:
 
 ********************************************************************
 FView plugin tutorial: change-based triggering of an external device
