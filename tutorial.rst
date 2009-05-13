@@ -18,67 +18,22 @@ http://github.com/motmot/fview_change_trigger/
 Prerequisites
 =============
 
+ * read and understand :ref:`fview-plugin-tutorial-histogram`
  * the :ref:`CamTrig hardware device <fview_ext_trig-overview>` plugged in and
    functioning
  * :mod:`fview_ext_trig` (software for the CamTrig) installed and functioning
 
-Step 1 - Build the file layout
-==============================
+Introduction
+============
 
-Your plugin will be a standard Python package. Create the following
-directories (``base`` should be your base directory, such as
-"fview_change_trigger")::
+From :ref:`fview-plugin-tutorial-histogram`, you should have a working
+knowledge of how to create a Python package directory structure and a
+setup.py file with the appropriate entry point to make an FView
+plugin. Therefore, this tutorial will focus only on the unique aspects
+of change-based triggering.
 
-  base
-  base/motmot
-  base/motmot/fview_change_trigger
-
-And create the following empty files::
-
-  base/motmot/__init__.py
-  base/motmot/fview_change_trigger/__init__.py
-
-Step 2 - Create setup.py
-========================
-
-Now, edit ``base/setup.py`` to contain the following (modify as necessary)::
-
-  from setuptools import setup, find_packages
-  import sys,os
-
-  setup(name='motmot.fview_change_trigger',
-      description='change trigger plugin for FView',
-      version='0.0.1',
-      packages = find_packages(),
-      author='Andrew Straw',
-      author_email='strawman@astraw.com',
-      url='http://code.astraw.com/projects/motmot',
-      entry_points = {
-    'motmot.fview.plugins':'fview_change_trigger = motmot.fview_change_trigger.fview_change_trigger:FviewChangeTrigger',
-    },
-      )
-
-This is a standard setuptools__ file for distributing and installing
-Python packages that tells Python which files to install and some
-associated meta-data.
-
-__ http://pypi.python.org/pypi/setuptools
-
-The ``packages = find_packages()`` line tells setuptools to look for
-standard Python packages (directories with an __init__.py
-file). Because you just created these directories and files in Step 1,
-setuptools automatically knows these directories contain the files to
-be installed.
-
-The ``entry_points`` line tells setuptools that we want to register a
-plugin. Our plugin is registered under the ``motmot.fview.plugins``
-key. FView inquires for any plugins under this key. This particular
-plugin is called ``fview_change_trigger``. It is defined in the
-module ``motmot.fview_change_trigger.fview_change_trigger`` and
-the class ``FviewChangeTrigger``, which we create below.
-
-Step 3 - Create the plugin logic
-================================
+Create the plugin logic
+=======================
 
 Now we're going to create the module
 ``motmot.fview_change_trigger.fview_change_trigger`` with our
