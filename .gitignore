@@ -1,0 +1,6 @@
+motmot.fview_change_trigger.egg-info
+*.pyc
+*~
+build
+dist
+*.pyo
