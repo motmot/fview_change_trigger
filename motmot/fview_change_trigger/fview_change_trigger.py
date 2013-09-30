@@ -2,15 +2,13 @@ from __future__ import with_statement, division
 
 import pkg_resources
 import warnings, threading
-import enthought.traits.api as traits
 
-import motmot.fview.traited_plugin as traited_plugin
 import motmot.fview_ext_trig.ttrigger as ttrigger
 import numpy as np
 
-from enthought.traits.ui.api import View, Item, Group
+from motmot.fview.traited_plugin import *
 
-class FviewChangeTrigger(traited_plugin.HasTraits_FViewPlugin):
+class FviewChangeTrigger(HasTraits_FViewPlugin):
     plugin_name = 'change detecting trigger'
 
     trigger_device = traits.Instance(ttrigger.DeviceModel)
