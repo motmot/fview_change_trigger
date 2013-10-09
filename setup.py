@@ -3,7 +3,7 @@ import sys,os
 
 setup(name='motmot.fview_change_trigger',
       description='change trigger plugin for FView',
-      version='0.0.1',
+      version='0.0.2',
       packages = find_packages(),
       author='Andrew Straw',
       author_email='strawman@astraw.com',
